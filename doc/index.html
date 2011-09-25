@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.7.2
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html" title="Index">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><div id='filecontents'><p>``` ruby
+# Short Form
+Faux(:name)         # =&gt; “Tony Anderson”
+Faux(:company_name) # =&gt; “Wenderson &amp; Sons”
+Faux(:age)          # =&gt; 23
+Faux(:race)         # =&gt; “Hispanic”</p>
+
+<h1 id="complex-form-useful-for-specific-subsets-of-data">Complex Form, useful for specific subsets of data</h1>
+<p>Faux::Text::Name.first_name                              # =&gt; “Amelia”
+Faux::Number::Financial::Yen.cash :range =&gt; (2000..6000) # =&gt; ¥4220
+Faux::Text::Ipsum::Bacon.words(8)                        # =&gt; “Corned beef sausage meatball, strip steak tongue sirloin.”</p>
+
+<h1 id="fake-factory-form-useful-for-whole-sets-of-data">Fake Factory Form, useful for whole sets of data</h1>
+<p>Faux.build :person # {
+				   #   :name =&gt; { :first =&gt; “Alison”, :middle =&gt; “Eve”, :last =&gt; “Whelps”},
+				   #   :birthday =&gt; { :year =&gt; 1987, :month =&gt; “July”, :day =&gt; 5, :age =&gt; 24},
+				   #   :race =&gt; “White”,
+				   #   :weight =&gt; 224,
+				   #   :height =&gt; 72,
+				   #   :likes =&gt; [“Magic The Gathering”, “Baseball”, “The Matrix”],
+				   #   :dislikes =&gt; [“Paper”, “Television”, “Wenderson &amp; Sons”],
+				   #   …
+				   # }</p>
+
+<h1 id="libraries-are-built-from-yaml-json-or-xml-mostly-yaml">Libraries are built from YAML, JSON, or XML. Mostly YAML.</h1>
+<p>text:
+  name: 
+    first:
+      - “Andrew”
+      - “Alison”
+      - “Avery”
+      - …
+    last:
+      - “Willson”
+      - …
+    middle:
+      - “Eve”
+      - …</p>
+
+<h1 id="you-can-also-dynamically-download-libraries-and-dynamically-not-load-other-libraries">You can also dynamically download libraries, and dynamically not load other libraries</h1>
+<p>Faux.library.add “http://fauxrb.com/libraries/41.json”, “#Rails.root/libraries/NHL_teams”
+Faux.library.remove Faux::Text, Faux::Number::Financial
+```</p>
+</div></div>
+    
+    <div id="footer">
+  Generated on Sun Sep 25 00:55:54 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.2 (ruby-1.9.2).
+</div>
+
+  </body>
+</html>

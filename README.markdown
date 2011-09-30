@@ -1,6 +1,6 @@
-
+``` ruby
 # Short Form
-Faux(:name)         # => "Tony Anderson"
+Faux(:full_name)    # => "Tony Anderson"
 Faux(:company_name) # => "Wenderson & Sons"
 Faux(:age)          # => 23
 Faux(:race)         # => "Hispanic"
@@ -27,15 +27,15 @@ Faux::Set :person # {
 
 # Libraries are groups of methods for random data are built in Ruby:
 module Faux::Library::Text
-  class Ipsum::Bacon
-    include Ipsum
+  module Ipsum::Bacon
+    extend Ipsum
   end
 end
 
 # Dictionaries are the lists and data for the libraries.
 
 module Faux::Dictionary::Text
-  class Ipsum::Bacon
+  module Ipsum::Bacon
     def self.words()
       [
         'adipisicing', 'aliqua', 'aliquip', 'anim', 'aute', 'bacon', 'ball', 'beef',
@@ -55,22 +55,4 @@ module Faux::Dictionary::Text
   end
 end
 
-
-# text:
-#   name: 
-#     first:
-#       - "Andrew"
-#       - "Alison"
-#       - "Avery"
-#       - ...
-#     last:
-#       - "Willson"
-#       - ...
-#     middle:
-#       - "Eve"
-#       - ...
-
-
-# You can also dynamically download libraries, and dynamically not load other libraries
-Faux.library.add "http://fauxrb.com/libraries/41.json", "#{Rails.root}/libraries/NHL_teams"
-Faux.library.remove Faux::Text, Faux::Number::Financial
+```

@@ -38,8 +38,12 @@ module Faux::Library::Text
 
     def middle_name(*args)
       extract_options_from DEFAULT, *args
-      unless @options[:has_middle]
-        Faux::Dictionary::Text::Name.last_names.sample
+      if @options[:has_middle] || @options[:full_middle_name]
+        if @options[:full_middle_name]
+          Faux::Dictionary::Text::Name.last_names.sample
+        else
+          Faux::Dictionary::Text::Name.last_names.sample.slice(0) + '.'
+        end
       else
         ''
       end

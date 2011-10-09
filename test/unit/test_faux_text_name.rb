@@ -3,7 +3,15 @@ require 'faux'
 
 class TestFauxTextName < MiniTest::Unit::TestCase
   def setup
+    @default = {
+      :hyphenated => false,
+      :has_middle => true,
+      :full_middle_name => false
+    }
+  end
 
+  def test_that_defaults_match
+    assert_equal @default, Faux::Library::Text::Name::DEFAULT
   end
 
   def test_that_first_name_is_a_string

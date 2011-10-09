@@ -3,9 +3,9 @@ require 'faux'
 
 class TestFaux < MiniTest::Unit::TestCase
   def setup
-    @defaults = {
+    @default = {
       :hyphenated => false,
-      :middle_name => false,
+      :has_middle => true,
       :full_middle_name => false
     }
   end
@@ -23,12 +23,12 @@ class TestFaux < MiniTest::Unit::TestCase
   end
 
   def test_extract_options_from_returns_default
-    assert_equal @defaults, Faux.extract_options_from(@defaults, {})
+    assert_equal @default, Faux.extract_options_from(@default, {})
   end
 
   def test_extract_options_from_returns_modified_hash
     args = { :full_middle_name => true }
-    modified_hash = @defaults.merge args
-    assert_equal modified_hash, Faux.extract_options_from(@defaults, args)
+    modified_hash = @default.merge args
+    assert_equal modified_hash, Faux.extract_options_from(@default, args)
   end
 end

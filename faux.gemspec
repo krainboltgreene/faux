@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'yard'
   s.add_development_dependency 'kramdown'
-  s.add_development_dependency 'rake'
   s.add_development_dependency 'minitest' if RUBY_VERSION =~ /1\.8/
-  s.add_development_dependency 'require_relative' if RUBY_VERSION =~ /1\.8/
+  s.add_dependency 'backports' if RUBY_VERSION =~ /1\.8/
+  s.add_dependency 'rake'
 end

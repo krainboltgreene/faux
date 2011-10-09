@@ -2,7 +2,7 @@ module Faux::Library::Text
   module Name
     DEFAULT = {
       :hyphenated => false,
-      :middle_name => true,
+      :has_middle => true,
       :full_middle_name => false
     }
 
@@ -38,10 +38,8 @@ module Faux::Library::Text
 
     def middle_name(*args)
       extract_options_from DEFAULT, *args
-      if @options[:full_middle_name]
+      unless @options[:has_middle]
         Faux::Dictionary::Text::Name.last_names.sample
-      elsif @options[:middle_name]
-        Faux::Dictionary::Text::Name.last_names.sample[0] + '.'
       else
         ''
       end

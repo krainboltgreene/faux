@@ -1,3 +1,3 @@
 module Faux::Library
-  require_relative 'library/text'
+  require_relative 'library/name'
 end

@@ -11,7 +11,7 @@ class TestFauxTextName < MiniTest::Unit::TestCase
   end
 
   def test_that_defaults_match
-    assert_equal @default, Faux::Library::Text::Name::DEFAULT
+    assert_equal @default, Faux::Library::Name::DEFAULT
   end
 
   def test_that_first_name_is_a_string
@@ -25,6 +25,13 @@ class TestFauxTextName < MiniTest::Unit::TestCase
   def test_that_first_name_has_valid_characters
     assert Faux(:first_name).match /[a-zA-Z]+/i
     refute Faux(:first_name).match /[^a-zA-Z]+/i
+  end
+
+  def test_that_first_name_comes_from_correct_gender_list
+    name = Faux(:first_name, :gender => :male)
+    assert Faux::Dictionary::Name.male_first_names.include? name
+    name = Faux(:first_name, :gender => :female)
+    assert Faux::Dictionary::Name.female_first_names.include? name
   end
 
   def test_that_middle_name_is_a_string

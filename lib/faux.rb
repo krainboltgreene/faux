@@ -7,7 +7,7 @@ def Faux(data = nil, *args)
 end
 
 module Faux
-  extend Faux::Library::Text::Name
+  extend Faux::Library::Name
 
   private
   def self.extract_options_from(default, *args)

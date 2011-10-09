@@ -1,3 +1,3 @@
 module Faux::Dictionary
-  require_relative 'dictionary/text'
+  require_relative 'dictionary/name'
 end

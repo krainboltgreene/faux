@@ -1,4 +1,4 @@
-require 'require_relative' if RUBY_VERSION =~ /1\.8/
+require 'backports' if RUBY_VERSION =~ /1\.8/
 require_relative 'faux/library'
 require_relative 'faux/dictionary'
 

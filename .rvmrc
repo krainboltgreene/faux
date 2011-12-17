@@ -45,8 +45,3 @@ fi
 # then
 #   rvm gemset import "$filename" | grep -v already | grep -v listed | grep -v complete | sed '/^$/d'
 # fi
-
-# If you use bundler, this might be useful to you:
-# if [[ -s Gemfile ]] && ! command -v bundle >/dev/null
-# then
-#   printf The

@@ -2,16 +2,16 @@ require 'bundler'
 require 'yard'
 require 'rake/testtask'
 require 'bundler/gem_tasks'
-Bundler::GemHelper.install_tasks
 require_relative 'test/helper'
 
 # Make sure the Bundler gem is installed by trying to use the setup method.
+Bundler::GemHelper.install_tasks
 begin
-  Bundler.setup(:default, :development)
-rescue Bundler::BundlerError => e
-  $stderr.puts e.message
+  Bundler.setup :default, :development
+rescue Bundler::BundlerError => error
+  $stderr.puts error.message
   $stderr.puts "Run `bundle install` to install missing gems"
-  exit e.status_code
+  exit error.status_code
 end
 
 desc "Setup `rake test` to run all of the tests in the test directory."

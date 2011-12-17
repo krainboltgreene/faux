@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'bundler'
+require 'yard'
 require 'bundler/gem_tasks'
 Bundler::GemHelper.install_tasks
 
@@ -21,10 +22,9 @@ Rake::TestTask.new(:test) do |test|
   test.verbose = true
 end
 
-# Pull in the YARD documentation gem with taks.
-require 'yard'
-YARD::Rake::YardocTask.new do |t|
-  t.files = FileList['lib/**/*.rb']
+desc "Setup YARD's documentation task with the files in lib."
+YARD::Rake::YardocTask.new :doc do |config|
+  config.files = Dir['lib/**/*.rb']
 end
 
 task :default => :test

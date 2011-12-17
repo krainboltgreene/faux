@@ -1,26 +1,31 @@
-# -*- encoding: utf-8 -*-
-$:.push File.expand_path("../lib", __FILE__)
-require "faux/version"
+# encoding: utf-8
+$:.push File.expand_path '../lib', __FILE__
+require 'faux/version'
 
-Gem::Specification.new do |s|
-  s.name        = "faux"
-  s.version     = Faux::VERSION
-  s.authors     = ["Kurtis Rainbolt-Greene"]
-  s.email       = ["kurtisrainboltgreene@gmail.com"]
-  s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+Gem::Specification.new do |spec|
+  spec.name          = 'faux'
+  spec.summary       = 'faux a factory-type fake data and fake dataset generator'
+  spec.description   = %q{
+    faux a factory-type fake data and fake dataset generator with well
+    organized plugin-and-use API.
+  }
+  spec.authors       = ['Kurtis Rainbolt-Greene']
+  spec.email         = ['kurtisrainboltgreene@gmail.com']
+  spec.homepage      = 'http://krainboltgreene.github.com/faux'
 
-  s.rubyforge_project = "faux"
+  spec.files         = `git ls-files`.split("\n")
+  spec.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  spec.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  spec.require_paths = ['lib']
 
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  s.require_paths = ["lib"]
+  spec.version        = Faux::VERSION
 
-  s.add_development_dependency 'yard'
-  s.add_development_dependency 'kramdown'
-  s.add_development_dependency 'minitest' if RUBY_VERSION =~ /1\.8/
-  s.add_dependency 'backports' if RUBY_VERSION =~ /1\.8/
-  s.add_dependency 'rake'
+  if RUBY_PLATFORM =~ /1\.8/
+    spec.add_development_dependency 'minitest', '2.6.2'
+    spec.add_dependency 'backports', '2.3.0'
+  end
+  spec.add_development_dependency 'yard', '0.7.3'
+  spec.add_development_dependency 'kramdown', '0.13.3'
+  spec.add_dependency 'rake', '0.9.2.2'
+
 end

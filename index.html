@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Faux by krainboltgreene</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Faux</h1>
+        <p>A factory-style fake data (and dataset) generator</p>
+        <p class="view"><a href="https://github.com/krainboltgreene/faux">View the Project on GitHub <small>krainboltgreene/faux</small></a></p>
+        <ul>
+          <li><a href="https://github.com/krainboltgreene/faux/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/krainboltgreene/faux/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/krainboltgreene/faux">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>faux</h1>
+
+<p>A factory-style fake data (and dataset) generator.</p>
+
+<h2>usage</h2>
+
+<div class="highlight"><pre><span class="c1"># Short Form</span>
+<span class="no">Faux</span><span class="p">(</span><span class="ss">:full_name</span><span class="p">)</span>           <span class="c1"># =&gt; "Tony Anderson"</span>
+<span class="no">Faux</span><span class="p">(</span><span class="ss">:company_name</span><span class="p">)</span>        <span class="c1"># =&gt; "Wenderson &amp; Sons, LLC"</span>
+<span class="no">Faux</span><span class="p">(</span><span class="ss">:age</span><span class="p">,</span> <span class="n">range</span><span class="p">:</span> <span class="mi">21</span><span class="o">.</span><span class="n">.</span><span class="mi">40</span><span class="p">)</span>  <span class="c1"># =&gt; 23</span>
+<span class="no">Faux</span><span class="p">(</span><span class="ss">:race</span><span class="p">)</span>                <span class="c1"># =&gt; "Hispanic"</span>
+</pre></div>
+
+<div class="highlight"><pre><span class="c1"># Fake Factory Form, useful for whole sets of data</span>
+<span class="no">Fauxset</span> <span class="ss">:person</span><span class="p">,</span> <span class="n">has</span><span class="p">:</span> <span class="o">[</span><span class="ss">:name</span><span class="p">,</span> <span class="ss">:birthday</span><span class="p">,</span> <span class="ss">:race</span><span class="p">,</span> <span class="ss">:weight</span><span class="p">,</span> <span class="ss">:height</span><span class="p">,</span> <span class="ss">:likes</span><span class="p">,</span> <span class="ss">:dislikes</span><span class="o">]</span>
+<span class="c1"># {</span>
+<span class="c1">#   :name =&gt; { :first =&gt; "Alison", :middle =&gt; "Eve", :last =&gt; "Whelps"},</span>
+<span class="c1">#   :birthday =&gt; { :year =&gt; 1987, :month =&gt; "July", :day =&gt; 5, :age =&gt; 24},</span>
+<span class="c1">#   :race =&gt; "White",</span>
+<span class="c1">#   :weight =&gt; 224,</span>
+<span class="c1">#   :height =&gt; 72,</span>
+<span class="c1">#   :likes =&gt; ["Magic The Gathering", "Baseball", "The Matrix"],</span>
+<span class="c1">#   :dislikes =&gt; ["Paper", "Television", "Wenderson &amp; Sons"],</span>
+<span class="c1"># }</span>
+</pre></div>
+
+<h3>Faux Libraries</h3>
+
+<div class="highlight"><pre><span class="c1"># Libraries are groups of methods for random data are built in Ruby:</span>
+<span class="k">module</span> <span class="nn">Faux::Library::Text</span><span class="ss">:Ipsum</span>
+  <span class="k">module</span> <span class="nn">Bacon</span>
+    <span class="kp">include</span> <span class="no">Ipsum</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+
+<h3>Faux Dictionaries</h3>
+
+<div class="highlight"><pre><span class="c1"># Dictionaries are the lists and data for the libraries.</span>
+
+<span class="k">module</span> <span class="nn">Faux::Dictionary::Text::Ipsum</span>
+  <span class="k">module</span> <span class="nn">Bacon</span>
+    <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">words</span>
+      <span class="sx">%q[</span>
+<span class="sx">        adipisicing aliqua aliquip anim aute bacon ball beef</span>
+<span class="sx">        belly chicken chop chuck cillum commodo consectetur</span>
+<span class="sx">        consequat corned cow cupidatat deserunt do dolor</span>
+<span class="sx">        drumstick duis ea elit enim esse est et eu</span>
+<span class="sx">        ex fatback flank fugiat ground ham hamburger hock id</span>
+<span class="sx">        in incididunt irure jerky labore laboris loin magna</span>
+<span class="sx">        meatball minim mollit nisi non nostrud nulla occaecat officia</span>
+<span class="sx">        pancetta pariatur pastrami pig pork proident qui quis ribeye </span>
+<span class="sx">        ribs round sausage sed shank shankle short shoulder sint </span>
+<span class="sx">        sirloin spare steak strip sunt t-bone tail tempor tenderloin </span>
+<span class="sx">        tip tongue tri-tip turkey ullamco ut velit veniam venison </span>
+<span class="sx">        venisonadipisicing</span>
+<span class="sx">      ]</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+
+<h3>Complex Selectors</h3>
+
+<div class="highlight"><pre><span class="c1"># Complex Selectors, useful for specific subsets of data</span>
+<span class="no">Faux</span><span class="o">::</span><span class="no">Text</span><span class="o">::</span><span class="no">Name</span><span class="o">.</span><span class="n">first_name</span>                              <span class="c1"># =&gt; "Amelia"</span>
+<span class="no">Faux</span><span class="o">::</span><span class="no">Number</span><span class="o">::</span><span class="no">Financial</span><span class="o">::</span><span class="no">Yen</span><span class="o">.</span><span class="n">cash</span> <span class="n">range</span><span class="p">:</span> <span class="mi">2000</span><span class="o">.</span><span class="n">.</span><span class="mi">6000</span> <span class="c1"># =&gt; ¥4220</span>
+<span class="no">Faux</span><span class="o">::</span><span class="no">Text</span><span class="o">::</span><span class="no">Ipsum</span><span class="o">::</span><span class="no">Bacon</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>                        <span class="c1"># =&gt; "Corned beef sausage meatball, strip steak tongue sirloin."</span>
+</pre></div>
+
+<h2>installing</h2>
+
+<p>Add this line to your application's Gemfile:</p>
+
+<pre><code>gem 'faux', '~&gt; 1.0'
+</code></pre>
+
+<p>And then execute:</p>
+
+<pre><code>$ bundle install
+</code></pre>
+
+<p>Or install it yourself as:</p>
+
+<pre><code>$ gem install example
+</code></pre>
+
+<h2>credits</h2>
+
+<ul>
+<li><a href="">Faker</a></li>
+<li><a href="">Forgery</a></li>
+</ul><h2>contributing</h2>
+
+<ol>
+<li>Fork it</li>
+<li>Create your feature branch (<code>git checkout -b my-new-feature</code>)</li>
+<li>Commit your changes (<code>git commit -am 'Add some feature'</code>)</li>
+<li>Push to the branch (<code>git push origin my-new-feature</code>)</li>
+<li>Create new Pull Request</li>
+</ol><h2>license</h2>
+
+<p>Copyright (c) 2011 Kurtis Rainbolt-Greene</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+      </section>
+    </div>
+    <footer>
+      <p>Project maintained by <a href="https://github.com/krainboltgreene">krainboltgreene</a></p>
+      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
+    </footer>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>

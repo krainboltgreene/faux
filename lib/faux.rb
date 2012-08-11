@@ -9,12 +9,4 @@ end
 module Faux
   extend Faux::Library::Name
 
-  private
-  def self.extract_options_from(default, *args)
-    @options = if args.first.is_a? Hash
-      default.merge(args.first)
-    else
-      default
-    end
-  end
 end

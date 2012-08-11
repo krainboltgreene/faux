@@ -7,8 +7,8 @@ def Faux(data = nil, options = {})
 end
 
 module Faux
-  extend Faux::Library::Name
   autoload :Library, 'faux/library'
   autoload :Dictionary, 'faux/dictionary'
 
+  extend Faux::Library::Name
 end

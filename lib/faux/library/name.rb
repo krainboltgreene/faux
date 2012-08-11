@@ -1,8 +1,9 @@
 module Faux::Library::Name
-  DEFAULT = {
-    :hyphenated => false,
-    :has_middle => true,
-    :full_middle_name => false
+  DEFAULTS = {
+    hyphenated: false,
+    has_middle: true,
+    full_middle: false,
+    defaulted: true
   }
 
   def full_name(*args)

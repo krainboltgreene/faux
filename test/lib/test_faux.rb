@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-require 'faux'
+require 'helper'
 
 class TestFaux < MiniTest::Unit::TestCase
   def setup

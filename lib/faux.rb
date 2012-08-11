@@ -1,7 +1,7 @@
 require 'backports' if RUBY_VERSION =~ /1\.8/
 
-def Faux(data = nil, *args)
-  Faux.send data, *args
+def Faux(data = nil, options = {})
+  Faux.send data, options
 end
 
 module Faux
